@@ -1,8 +1,9 @@
 # VMware vRealize Operations Manager Public Health Dashboard
-Name: vROPSPHD  
-Description: Integrate VMware vRealize Operations Manager (vROPS) with Cachet and create public health dashboard for your users  
+**Name:** vROPSPHD  
+**Description:**  
+Integrate VMware vRealize Operations Manager (vROPS) with Cachet to create public health dashboard for your users.  
 This script creates/deletes/updates Cachet components, incidents and health status based on active vROPs incidents and objects in vROPs custom group  
-Author: Daniel Zhelev  
+**Author:** Daniel Zhelev  
 
 ## Prerequisites:
 Installed and configured vROPs  
