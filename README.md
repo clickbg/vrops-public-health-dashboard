@@ -1,13 +1,14 @@
 # VMware vRealize Operations Manager Public Health Dashboard
 Name: vROPSPHD  
 Description: Integrate VMware vRealize Operations Manager (vROPS) with Cachet and create public health dashboard for your users  
+This script creates/deletes/updates Cachet components, incidents and health status based on active vROPs incidents and objects in vROPs custom group  
 Author: Daniel Zhelev  
 
 ## Prerequisites:
 Installed and configured vROPs  
 Installed and configured Cachet - [How to install and configure Cachet](https://docs.cachethq.io/v1.0/docs/installing-cachet)  
 JQ version 1.5 or newer - [About JQ](https://stedolan.github.io/jq/)  
-vROPs custom group containing all objects that you want to see in Cachet - [How to create vROPs custom groups](https://blogs.vmware.com/management/2016/07/organizing-your-vmware-vrealize-operations-environment-with-custom-groups.html)  
+vROPs custom group containing all the objects that you want to see in Cachet - [How to create vROPs custom groups](https://blogs.vmware.com/management/2016/07/organizing-your-vmware-vrealize-operations-environment-with-custom-groups.html)  
 
 ## Installation
 1. Create vROPs custom group and put the desired objects in it.  
@@ -55,3 +56,31 @@ Example: crontab -u vropsphd -e
 
 12. Rename and group your objects in Cachet  
 You are free to group and rename the Cachet components, it won't affect the script as we are using ids.  
+
+## FAQ
+Q: Will the script touch anything in vROPs?  
+A: No, the script only collects from vROPs it doesn’t make any modifications.
+
+Q: Will the script touch anything in Cachet?
+A: Yes, the script creates, modifies, deletes Cachet components and alerts based on the objects in your vROPs custom group.  
+It won't however delete anything that wasn't created by it in the first place.  
+So if you have other Cachet components or alerts then they are safe.  
+Every created component or alert is stored in $RUN_DIR/open_incidents.json and $RUN_DIR/cachet_components.json  
+
+Q: Can I rename, group or re-arrange Cachet objects created by the script?  
+A: Yes, the script uses Cachet ids to identify the objects managed by it.  
+
+Q: Can I have other things integrated with Cachet - other components or incidents?
+A: Yes, the script only deletes, updates objects which were created by it.
+Everything else is safe.
+
+Q: Is it safe to delete files in $RUN_DIR?  
+A: No, you can delete anything in $RUN_DIR/tmp but if you delete cachet_components.json or open_incidents.json you will end up with duplicate Cachet components and alerts.  
+
+Q: Can I delete components or open alerts which were created by the script from Cachet?
+A: No, the script will re-create them.  
+You need to remove an object from the vROPs custom group and the script will delete it from Cachet automatically.
+It is safe to remove closed alerts as are we are not tracking those.
+
+Q: Can I manually mark open Cachet alert created by the script as closed?
+A: Yes, but it is better to wait for the script to it. Otherwise it might create a duplicate alert if there is vROPs alert still open.
