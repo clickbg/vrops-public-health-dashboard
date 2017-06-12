@@ -16,7 +16,7 @@ vROPs custom group containing all the objects that you want to see in Cachet - [
 The script will create them in Cachet.
 
 2. Get the vROPs custom group resource id.  
-Open the custom group in vROPs from Environment > Custom Groups > [Your group name] and copy the group id from its url.  
+Open the custom group in vROPs from Environment > Custom Groups > [Your group name] and copy the group id from the url.  
 Example: https://vrops.test.local/ui/index.action#/object/f848a8d3-4516-461f-bacb-2d9b867a4227/summary  
 Id: f848a8d3-4516-461f-bacb-2d9b867a4227  
 
