@@ -35,10 +35,14 @@ The script will create sub-directories and generate JSON files so we need to hav
 Example: mkdir /usr/local/sbin/vropsphd && chmod 700 /usr/local/sbin/vropsphd  
 
 7. Download the vROPSPHD script  
-Example: wget --content-disposition https://raw.githubusercontent.com/clickbg/vrops-public-health-dashboard/master/vropsphd.sh -O /usr/local/sbin/vropsphd/vropsphd.sh  
+Example:  
+git clone https://github.com/clickbg/vrops-public-health-dashboard.git  
+mv ./vrops-public-health-dashboard/vropsphd.sh /usr/local/sbin/vropsphd/vropsphd.sh  
 
 8. Set owner and permissions  
-Example: chown vropsphd:vropsphd /usr/local/sbin/vropsphd/vropsphd.sh && chmod 700 /usr/local/sbin/vropsphd/vropsphd.sh  
+Example:  
+chown vropsphd:vropsphd /usr/local/sbin/vropsphd/vropsphd.sh  
+chmod 700 /usr/local/sbin/vropsphd/vropsphd.sh  
 
 9. Configure the script  
 Example: vi /usr/local/sbin/vropsphd/vropsphd.sh  
