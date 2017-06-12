@@ -3,10 +3,11 @@
 **Description:**  
 Integrate VMware vRealize Operations Manager (vROPS) with Cachet to create public health dashboard for your users.  
 This script creates/deletes/updates Cachet components, incidents and health status based on active vROPs incidents and objects in vROPs custom group  
+**Supported versions**: vROps 6.3 or newer, Cachet 2.3.x
 **Author:** Daniel Zhelev  
 
 ## Prerequisites:
-Installed and configured vROPs  
+Installed and configured vROps  
 Installed and configured Cachet - [How to install and configure Cachet](https://docs.cachethq.io/v1.0/docs/installing-cachet)  
 JQ version 1.5 or newer - [About JQ](https://stedolan.github.io/jq/)  
 vROPs custom group containing all the objects that you want to see in Cachet - [How to create vROPs custom groups](https://blogs.vmware.com/management/2016/07/organizing-your-vmware-vrealize-operations-environment-with-custom-groups.html)  
