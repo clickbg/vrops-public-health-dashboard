@@ -1,13 +1,13 @@
 # VMware vRealize Operations Manager Public Health Dashboard
-Name: vROPSPHD
-Description: Integrate VMware vRealize Operations Manager (vROPS) with Cachet and create public health dashboard for your users
-Author: Daniel Zhelev
+Name: vROPSPHD  
+Description: Integrate VMware vRealize Operations Manager (vROPS) with Cachet and create public health dashboard for your users  
+Author: Daniel Zhelev  
 
 ## Prerequisites:
-Installed and configured vROPs
-Installed and configured Cachet - [How to install and configure Cachet](https://docs.cachethq.io/v1.0/docs/installing-cachet)
-JQ version 1.5 or newer - [About JQ](https://stedolan.github.io/jq/)
-vROPs custom group containing all objects that you want to see in Cachet - [How to create vROPs custom groups](https://blogs.vmware.com/management/2016/07/organizing-your-vmware-vrealize-operations-environment-with-custom-groups.html)
+Installed and configured vROPs  
+Installed and configured Cachet - [How to install and configure Cachet](https://docs.cachethq.io/v1.0/docs/installing-cachet)  
+JQ version 1.5 or newer - [About JQ](https://stedolan.github.io/jq/)  
+vROPs custom group containing all objects that you want to see in Cachet - [How to create vROPs custom groups](https://blogs.vmware.com/management/2016/07/organizing-your-vmware-vrealize-operations-environment-with-custom-groups.html)  
 
 ## Installation
 1. Create vROPs custom group and put the desired objects in it.  
