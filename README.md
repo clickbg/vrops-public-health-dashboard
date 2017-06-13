@@ -58,7 +58,9 @@ Example: su vropsphd -c /usr/local/sbin/vropsphd/vropsphd.sh
 Usually you will want the script to keep Cachet updated so its good idea to schedule a cron job  
 Recommended is to run the job every two vROPs cycles - 10 minutes, but you can choose other interval.  
 Since vROPs refreshes the data every 5 minutes running the script in lower interval than that would not make sense.  
-Example: crontab -u vropsphd -e  
+Example:  
+touch /var/log/vropsphd.log && chown vropsphd:vropsphd /var/log/vropsphd.log && chmod 600 /var/log/vropsphd.log  
+crontab -u vropsphd -e  
 */10 * * * * /usr/local/sbin/vropsphd/vropsphd.sh >> /var/log/vropsphd.log 2>&1  
 
 12. Rename and group your objects in Cachet  
