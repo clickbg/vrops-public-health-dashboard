@@ -26,7 +26,7 @@ Id: f848a8d3-4516-461f-bacb-2d9b867a4227
 You can run it directly on the Cachet VM or in a seperate VM  
 Do not run it in the vROPs VA!  
 
-4. Install JQ on the VM where you intend to run the script
+4. Install JQ on the VM where you intend to run the script  
 
 5. Create user which will run the script  
 You can run it as root, it’s not recommended  
