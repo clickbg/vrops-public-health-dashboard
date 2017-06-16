@@ -93,4 +93,4 @@ You have to remove an object from the vROPs custom group and the script will del
 You are free to remove closed alerts as are we are not tracking those.
 
 Q: Can I manually mark open Cachet alert created by the script as closed?  
-A: Yes, but it is better to wait for the script to it. Otherwise it will create a duplicate alert if there is vROPs alert still open.  
+A: Yes, but it is better to wait for the script to do it. Otherwise it will create a duplicate alert if there is vROPs alert still open.  
