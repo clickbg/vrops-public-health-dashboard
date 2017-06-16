@@ -71,7 +71,7 @@ You are free to group and rename the Cachet components, it won't affect the scri
 Q: Will the script touch anything in vROPs?  
 A: No, the script only collects from vROPs it doesn’t make any modifications.
 
-Q: Will the script touch anything in Cachet?
+Q: Will the script touch anything in Cachet?  
 A: Yes, the script creates, modifies, deletes Cachet components and alerts based on the objects in your vROPs custom group.  
 It won't however delete anything that wasn't created by it in the first place.  
 So if you have other Cachet components or alerts then they are safe.  
