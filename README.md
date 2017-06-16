@@ -15,7 +15,7 @@ vROPs custom group containing all the objects that you want to see in Cachet - [
 
 ## Installation
 1. Create vROPs custom group and put the desired objects in it.  
-The script will create them in Cachet.
+The script will create them in Cachet
 
 2. Get the vROPs custom group resource id.  
 Open the custom group in vROPs from Environment > Custom Groups > [Your group name] and copy the group id from the url.  
@@ -29,7 +29,7 @@ Do not run it in the vROPs VA!
 4. Install JQ on the VM where you intend to run the script  
 
 5. Create user which will run the script  
-You can run it as root, it’s not recommended  
+You can run it as root, but it’s not recommended  
 Example: useradd -d /usr/local/sbin/vropsphd vropsphd  
 
 6. If you have skipped 5. then create home directory  
@@ -50,14 +50,15 @@ chmod 700 /usr/local/sbin/vropsphd/vropsphd.sh
 Example: vi /usr/local/sbin/vropsphd/vropsphd.sh  
 
 10. First time run  
-On first run the script will create directory structure and config files  
-Its advisable not to delete anything outside of /usr/local/sbin/vropsphd/vropsphd.sh/tmp/  
+On first run the script will create directory structure and JSON config files  
+Please do not delete anything outside of /usr/local/sbin/vropsphd/vropsphd.sh/tmp/  
+If you do you will end up with duplicate objects and alerts in Cachet  
 Example: su vropsphd -c /usr/local/sbin/vropsphd/vropsphd.sh  
 
 11. Schedule cron job  
 Usually you will want the script to keep Cachet updated so its good idea to schedule a cron job  
-Recommended is to run the job every two vROPs cycles - 10 minutes, but you can choose other interval.  
-Since vROPs refreshes the data every 5 minutes running the script in lower interval than that would not make sense.  
+My recommendation is to run the job every two vROPs collection cycles or 10 minutes, but you are free to choose other interval.  
+Since vROPs refreshes the data every 5 minutes running the script in lower interval than that would not any make sense.  
 Example:  
 touch /var/log/vropsphd.log && chown vropsphd:vropsphd /var/log/vropsphd.log && chmod 600 /var/log/vropsphd.log  
 crontab -u vropsphd -e  
@@ -79,17 +80,17 @@ Every created component or alert is stored in $RUN_DIR/open_incidents.json and $
 Q: Can I rename, group or re-arrange Cachet objects created by the script?  
 A: Yes, the script uses Cachet ids to identify the objects managed by it.  
 
-Q: Can I have other things integrated with Cachet - other components or incidents?
-A: Yes, the script only deletes, updates objects which were created by it.
-Everything else is safe.
+Q: Can I have other things integrated with Cachet - other components or incidents?  
+A: Yes, the script only deletes and updates objects that were created by it.  
+Everything else that you have in Cachet will be safe.  
 
 Q: Is it safe to delete files in $RUN_DIR?  
-A: No, you can delete anything in $RUN_DIR/tmp but if you delete cachet_components.json or open_incidents.json you will end up with duplicate Cachet components and alerts.  
+A: No, you are free to delete anything in $RUN_DIR/tmp but if you delete cachet_components.json or open_incidents.json you will end up with duplicate Cachet components and alerts.  
 
-Q: Can I delete components or open alerts which were created by the script from Cachet?
-A: No, the script will re-create them.  
-You need to remove an object from the vROPs custom group and the script will delete it from Cachet automatically.
-It is safe to remove closed alerts as are we are not tracking those.
+Q: Can I delete components or open alerts which were created by the script from Cachet?  
+A: No, the script will just re-create them.  
+You have to remove an object from the vROPs custom group and the script will delete it from Cachet automatically.  
+You are free to remove closed alerts as are we are not tracking those.
 
-Q: Can I manually mark open Cachet alert created by the script as closed?
-A: Yes, but it is better to wait for the script to it. Otherwise it might create a duplicate alert if there is vROPs alert still open.
+Q: Can I manually mark open Cachet alert created by the script as closed?  
+A: Yes, but it is better to wait for the script to it. Otherwise it will create a duplicate alert if there is vROPs alert still open.  
